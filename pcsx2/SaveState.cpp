@@ -63,6 +63,26 @@ wxString SaveStateBase::GetFilename( int slot )
 	//	pxsFmt( L"%08X.%03d", ElfCRC, slot )).GetFullPath();
 }
 
+bool SaveStateBase::isSlotUsed(int slot)
+{
+	if (ElfCRC == 0)
+		return false;
+	else
+		return wxFileExists(SaveStateBase::GetFilename(slot));
+}
+
+wxDateTime SaveStateBase::GetSlotTimestamp(int slot)
+{
+	if (isSlotUsed(slot))
+	{
+		return wxDateTime(wxFileModificationTime(GetFilename(slot)));
+	}
+	else
+	{
+		return wxInvalidDateTime;
+	}
+}
+
 SaveStateBase::SaveStateBase( SafeArray<u8>& memblock )
 {
 	Init( &memblock );

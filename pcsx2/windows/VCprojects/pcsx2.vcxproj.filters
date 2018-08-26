@@ -1212,6 +1212,9 @@
     <ClInclude Include="..\..\gui\AppGameDatabase.h">
       <Filter>AppHost</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\gui\Saveslots.h">
+      <Filter>AppHost</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\gui\Panels\MemoryCardPanels.h">
       <Filter>AppHost\Panels</Filter>
     </ClInclude>

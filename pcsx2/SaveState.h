@@ -113,6 +113,8 @@ public:
 	virtual ~SaveStateBase() { }
 
 	static wxString GetFilename( int slot );
+	static bool isSlotUsed(int slot);
+	static wxDateTime GetSlotTimestamp(int slot);
 
 	// Gets the version of savestate that this object is acting on.
 	// The version refers to the low 16 bits only (high 16 bits classifies Pcsx2 build types)
