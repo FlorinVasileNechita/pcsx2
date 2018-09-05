@@ -54,14 +54,6 @@ protected:
 	}
 };
 
-void Saveslots_UpdateFromDisk()
-{
-	for (int i = 0; i < StateSlotsCount; i++)
-	{
-		saveslot_cache[i].UpdateCache();
-	}
-}
-
 void Sstates_updateLoadBackupMenuItem(bool isBeforeSave = false);
 
 void States_FreezeCurrentSlot()

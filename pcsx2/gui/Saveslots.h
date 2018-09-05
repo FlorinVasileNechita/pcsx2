@@ -53,7 +53,7 @@ public:
 
 	~Saveslot() {}
 
-	__forceinline bool isUsed()
+	bool isUsed()
 	{
 		// Disabling the crc = 0 that was originally in here because people may want to save to saveslots in the bios for some bizarre reason.
 		//if (ElfCRC == 0)
@@ -62,7 +62,7 @@ public:
 			return wxFileExists(SaveStateBase::GetFilename(slot_num));
 	}
 
-	__forceinline wxDateTime GetTimestamp()
+	wxDateTime GetTimestamp()
 	{
 		if (isUsed())
 		{
@@ -74,14 +74,14 @@ public:
 		}
 	}
 
-	__forceinline void UpdateCache()
+	void UpdateCache()
 	{
 		empty = !isUsed();
 		updated = GetTimestamp();
 		crc = ElfCRC;
 	}
 
-	__forceinline wxString SlotName()
+	wxString SlotName()
 	{
 		if (empty)
 		{
@@ -96,7 +96,7 @@ public:
 		}
 	}
 
-	__forceinline void ConsoleDump()
+	void ConsoleDump()
 	{
 		Console.WriteLn("Slot %i information:", slot_num);
 		Console.WriteLn("Internal CRC = %i; Current CRC = %i.", crc, ElfCRC);
@@ -119,7 +119,6 @@ extern void States_DefrostCurrentSlot();
 extern void States_FreezeCurrentSlot();
 extern void States_CycleSlotForward();
 extern void States_CycleSlotBackward();
-extern void Saveslots_UpdateFromDisk();
 extern void States_SetCurrentSlot(int slot);
 extern int States_GetCurrentSlot();
 
