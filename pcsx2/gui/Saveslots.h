@@ -55,9 +55,10 @@ public:
 
 	__forceinline bool isUsed()
 	{
-		if (ElfCRC == 0)
-			return false;
-		else
+		// Disabling the crc = 0 that was originally in here because people may want to save to saveslots in the bios for some bizarre reason.
+		//if (ElfCRC == 0)
+		//	return false;
+		//else
 			return wxFileExists(SaveStateBase::GetFilename(slot_num));
 	}
 
