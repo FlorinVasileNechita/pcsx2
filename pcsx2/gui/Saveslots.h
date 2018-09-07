@@ -16,9 +16,6 @@
 
 #pragma once
 
-#ifndef __SAVESLOTS_H__
-#define __SAVESLOTS_H__
-
 #include "PS2Edefs.h"
 #include "System.h"
 #include "Elfheader.h"
@@ -121,5 +118,3 @@ extern void States_CycleSlotForward();
 extern void States_CycleSlotBackward();
 extern void States_SetCurrentSlot(int slot);
 extern int States_GetCurrentSlot();
-
-#endif
