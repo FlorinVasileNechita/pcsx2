@@ -54,7 +54,7 @@ protected:
 	}
 };
 
-void Sstates_updateLoadBackupMenuItem(bool isBeforeSave = false);
+void Sstates_updateLoadBackupMenuItem(bool isBeforeSave);
 
 void States_FreezeCurrentSlot()
 {
@@ -103,7 +103,7 @@ void _States_DefrostCurrentSlot(bool isFromBackup)
 
 	GetSysExecutorThread().PostIdleEvent(SysExecEvent_ClearSavingLoadingFlag());
 
-	Sstates_updateLoadBackupMenuItem();
+	Sstates_updateLoadBackupMenuItem(false);
 }
 
 void States_DefrostCurrentSlot()
@@ -116,7 +116,7 @@ void States_DefrostCurrentSlotBackup()
 	_States_DefrostCurrentSlot(true);
 }
 
-// It doesn't seem like this is working at the moment, in that the menu item always seems disabled in tests, but it also doesn't seem like it was working previously...
+// I'd keep an eye on this function, as it may still be problematic.
 void Sstates_updateLoadBackupMenuItem(bool isBeforeSave)
 {
 	wxString file = SaveStateBase::GetFilename(StatesC);
@@ -137,7 +137,7 @@ static void OnSlotChanged()
 	if (GSchangeSaveState != NULL)
 		GSchangeSaveState(StatesC, SaveStateBase::GetFilename(StatesC).utf8_str());
 
-	Sstates_updateLoadBackupMenuItem();
+	Sstates_updateLoadBackupMenuItem(false);
 }
 
 int States_GetCurrentSlot()

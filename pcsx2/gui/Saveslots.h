@@ -118,3 +118,4 @@ extern void States_CycleSlotForward();
 extern void States_CycleSlotBackward();
 extern void States_SetCurrentSlot(int slot);
 extern int States_GetCurrentSlot();
+extern void Sstates_updateLoadBackupMenuItem(bool isBeforeSave);

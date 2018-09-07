@@ -69,6 +69,7 @@ static void _SaveLoadStuff(bool enabled)
 		sMainFrame.SetMenuItemLabel(load_menu_item, saveslot_cache[i].SlotName());
 		sMainFrame.SetMenuItemLabel(save_menu_item, saveslot_cache[i].SlotName());
 	}
+	Sstates_updateLoadBackupMenuItem(false);
 }
 
 // Updates the enable/disable status of all System related controls: menus, toolbars,
